@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+<meta http-equiv="Content-Security-Policy"
+          content="default-src *;
+               script-src 'self' 'unsafe-inline' 'unsafe-eval'
+                           0.0.0.0:*
+                           ;
+               style-src  'self' 'unsafe-inline'
+                          0.0.0.0
+">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="bower_components/angular-growl-v2/build/angular-growl.min.css" />
         <link rel="stylesheet" href="styles/main.css">        
         <title>Guarderia</title>
     </head>
@@ -44,9 +52,11 @@
 
       <div class="footer">
         <div class="container">
-          <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+          <p><span class="glyphicon glyphicon-education"></span> While</p>
         </div>
       </div>
+
+      <div growl></div>
 
       <!-- build:js(.) scripts/vendor.js -->
       <!-- bower:js -->
@@ -61,6 +71,10 @@
       <script src="bower_components/angular-route/angular-route.js"></script>
       <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
       <script src="bower_components/angular-touch/angular-touch.js"></script>
+      <script src="bower_components/angular-growl-v2/build/angular-growl.min.js"></script>
+      <script src="bower_components/lodash/dist/lodash.core.js"></script>
+      <script src="bower_components/lodash/dist/lodash.fp.js"></script>
+      <script src="bower_components/lodash/dist/lodash.js"></script>
       <!-- endbower -->
       <!-- endbuild -->
 
@@ -71,6 +85,7 @@
           <script src="scripts/controllers/configuration-server.js"></script>
           <script src="scripts/controllers/configuration-device.js"></script>
           <script src="scripts/services/configuration-device.js"></script>
+          <script src="scripts/services/remote-devices.js"></script>
           <!-- endbuild -->
     </body>
 </html>

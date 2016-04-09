@@ -8,22 +8,11 @@
  * Controller of the guarderiaApp
  */
 angular.module('guarderiaApp')
-  .controller('ConfigurationDeviceCtrl', function ($scope, configurationDevice) {
+  .controller('ConfigurationDeviceCtrl', function ( $scope, configurationServer, $interval, configurationDevice ) {
 
-  	$scope.devices = [
-  		{
-  			name: 'device1',
-  			id: '10001'
-  		}, {
-  			name: 'device2',
-  			id: '10002'
-  		}, {
-  			name: 'device3',
-  			id: '10003'
-  		}
-  	];
+  	$scope.devices = configurationDevice.data ? configurationDevice.data : [];
 
-  	$scope.delete = function( id ) {
-  		console.log( id );
+  	$scope.check = function( id ) {
+  		console.log ( configurationDevice.getTemperature( id ) );
   	}
   });

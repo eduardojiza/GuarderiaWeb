@@ -9,5 +9,20 @@
  */
 angular.module('guarderiaApp')
   .service('configurationServer', function () {
-    // AngularJS will instantiate a singleton by calling "new" on this function
+  	var data = {};
+  	data.address = "";
+  	data.transport = "";
+
+  	data.thereIsConfiguration = function() {
+  		if ( data.address ) {
+  			return true;
+  		}
+  		return false;
+  	}
+
+  	data.getUri = function( value = "" ){
+  		return this.address + this.transport + value;
+  	}
+
+  	return data;
   });

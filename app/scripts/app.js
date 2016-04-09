@@ -17,9 +17,11 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'angular-growl',
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, growlProvider) {
+    growlProvider.globalTimeToLive(3000);
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',

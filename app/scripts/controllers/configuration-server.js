@@ -8,23 +8,23 @@
  * Controller of the guarderiaApp
  */
 angular.module('guarderiaApp')
-  .controller('ConfigurationServerCtrl', function ($scope, configurationDevice) {
+  .controller('ConfigurationServerCtrl', function ($scope, configurationServer) {
 
   	$scope.address = "";
   	$scope.transport = "";
 
   	function init() {
-  		console.log( "There is Configuration ? " + configurationDevice.thereIsConfiguration() );
-  		if ( configurationDevice.thereIsConfiguration() ) {
-		  	$scope.address = configurationDevice.address;
-		  	$scope.transport = configurationDevice.transport;  			
+  		console.log( "There is Configuration ? " + configurationServer.thereIsConfiguration() );
+  		if ( configurationServer.thereIsConfiguration() ) {
+		  	$scope.address = configurationServer.address;
+		  	$scope.transport = configurationServer.transport;  			
   		} 
   	}
 
   	$scope.apply = function() {
-		configurationDevice.address = $scope.address;
-		configurationDevice.transport = $scope.transport;  
-		console.log( "Base URI: " + configurationDevice.getUri() );		
+		configurationServer.address = $scope.address;
+		configurationServer.transport = $scope.transport;  
+		console.log( "Base URI: " + configurationServer.getUri() );		
   	}
 
   	init();
