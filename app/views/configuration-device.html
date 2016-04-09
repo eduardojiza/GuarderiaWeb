@@ -1,0 +1,13 @@
+<table class="table">
+  <tr>
+    <th>Dispositivo</th>
+    <th>Temperatura</th> 
+    <th></th>
+  </tr>
+  <tr ng-repeat="device in devices">
+    <td>{{ device.name }}</td>
+    <td>{{ device.temperature }}</td>
+    <td><button ng-click="delete( device.id )" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
+  </tr>
+</table>
+<button class="btn btn-primary">Agregar</button>
